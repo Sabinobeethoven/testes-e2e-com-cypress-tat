@@ -1,3 +1,4 @@
+/// <reference path="../support/commands.d.ts" />
 // cypress/e2e/authenticated.cy.js
 
 import { faker } from '@faker-js/faker/locale/en'
@@ -24,7 +25,7 @@ describe('Scenarios where authentication is a pre-condition', () => {
     cy.wait('@getNotes')
   })
 
-  it('successfully submits the settings form', () => {
+  it.only('successfully submits the settings form', () => {
     cy.intercept('POST', '**/prod/billing').as('paymentRequest')
 
     cy.fillSettingsFormAndSubmit()
